@@ -1,0 +1,7 @@
+sistema de gerenciamento de compras
+
+-permitir armazenar dados
+-gerenciar mantimentos atuais
+-datas de fazer compras
+-quantidade de itens para comprar
+-preços dos itens

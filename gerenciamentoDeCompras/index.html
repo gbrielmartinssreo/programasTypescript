@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Mantimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Mantimentos</h1>
+
+        <!-- Seção para adicionar um novo item -->
+        <div class="form-section">
+            <h2>Adicionar Item</h2>
+            <input id="input-item" type="text" placeholder="Nome do item" />
+            <input id="input-quantidade" type="number" placeholder="Quantidade" />
+            <input id="input-preco" type="number" step="0.01" placeholder="Preço" />
+            <input id="input-data" type="date" />
+            <button id="add-item-btn">Adicionar Item</button>
+        </div>
+
+        <!-- Seção para visualizar itens e opções -->
+        <div class="list-section">
+            <h2>Lista de Itens</h2>
+            <ul id="lista-de-itens">
+                <!-- Itens serão listados aqui -->
+            </ul>
+        </div>
+
+        <!-- Seção para alterar um item existente -->
+        <div class="form-section">
+            <h2>Alterar Item</h2>
+            <input id="alterar-item-nome" type="text" placeholder="Nome do item a alterar" />
+            <input id="alterar-quantidade" type="number" placeholder="Nova quantidade" />
+            <input id="alterar-preco" type="number" step="0.01" placeholder="Novo preço" />
+            <input id="alterar-data" type="date" />
+            <button id="alterar-item-btn">Alterar Item</button>
+        </div>
+
+        <!-- Seção para itens a comprar -->
+        <div class="list-section">
+            <h2>Itens a Comprar</h2>
+            <ul id="lista-de-compras">
+                <!-- Itens a serem comprados aparecerão aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

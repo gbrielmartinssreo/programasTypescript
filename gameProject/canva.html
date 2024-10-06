@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Vampire Survivors</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333; /* Fundo escuro */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 800; 
+        canvas.height = 600; 
+
+        // --- MAPA ---
+        const tamanhoTile = 32;
+        const mapa = [
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 0, 1, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 0, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 0, 1, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+        ]; // 0 = chão, 1 = parede (expanda como desejar)
+
+        function desenharMapa() {
+            for (let linha = 0; linha < mapa.length; linha++) {
+                for (let coluna = 0; coluna < mapa[linha].length; coluna++) {
+                    if (mapa[linha][coluna] === 1) {
+                        ctx.fillStyle = 'gray'; // Parede
+                        ctx.fillRect(coluna * tamanhoTile, linha * tamanhoTile, tamanhoTile, tamanhoTile);
+                    }
+                }
+            }
+        }
+
+        // --- JOGADOR ---
+        const jogador = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            raio: 10,
+            velocidade: 3
+        };
+
+        function desenharJogador() {
+            ctx.beginPath();
+            ctx.arc(jogador.x, jogador.y, jogador.raio, 0, Math.PI * 2);
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+        }
+
+        // --- INIMIGOS ---
+        const inimigos = []; // Lógica para criar e gerenciar inimigos (adicione mais tarde)
+
+        function desenharInimigos() {
+            // ... (implemente a lógica de desenho dos inimigos)
+        }
+
+        // --- LOOP PRINCIPAL ---
+        function atualizar() {
+            // Limpa o canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Desenha os elementos do jogo
+            desenharMapa();
+            desenharJogador();
+            desenharInimigos(); // Implemente a lógica dos inimigos
+
+            // Lógica do jogo (movimento, colisão, etc.)
+            // ... (implemente aqui)
+
+            requestAnimationFrame(atualizar);
+        }
+
+        atualizar(); 
+    </script>
+</body>
+</html>
